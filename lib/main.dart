@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'Page/HomePage.dart';
 import 'Page/Page Contact/all_contact.dart';
 import 'Page/Page Contact/duplacates_name/duplicate_name.dart';
