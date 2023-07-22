@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../purchase_page/purchase_v2_page.dart';
 
 class PremiumPage extends StatefulWidget {
   const PremiumPage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _PremiumPageState extends State<PremiumPage> {
         elevation: 0,
         backgroundColor: Colors.blue.shade600,
         leading: TextButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
           child: SizedBox(
@@ -262,8 +263,8 @@ class _PremiumPageState extends State<PremiumPage> {
                     color: Colors.white),
                 child: TextButton(
                     onPressed: () {
-
-                      Navigator.pop(context);
+                      PurchaseV2Page();
+                      print('objectAAAAA');
                     },
                     child: Text('SUBSCRIBE',
                         style: TextStyle(

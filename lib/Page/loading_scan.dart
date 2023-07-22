@@ -73,7 +73,7 @@ class _LoadingScanState extends State<LoadingScan> {
             ),
           ),
           const Text(
-            "Scanning...",
+            "Scanning..",
             style: TextStyle(
                 fontSize: 15.0,
                 color: Colors.black),
