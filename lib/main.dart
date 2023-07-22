@@ -1,4 +1,7 @@
+import 'package:com.qksoft.sharefilemess/utils/locator/locator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'Page/HomePage.dart';
 import 'Page/Page Contact/all_contact.dart';
 import 'Page/Page Contact/duplacates_name/duplicate_name.dart';
@@ -44,8 +47,18 @@ import 'Page/PhotoCompress/photo_compress_preview.dart';
 import 'Page/PhotoCompress/photo_compress_scan_image.dart';
 import 'Page/smart_scan.dart';
 import 'Route/constan_route.dart';
+import 'model/product.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  // Hive.registerAdapter(ProductAdapter());
+
+  await Hive.openBox<Product>('product');
+
+  await setupGetIt();
+
   runApp(const MyApp());
 }
 
@@ -56,7 +69,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -170,7 +182,8 @@ class MyApp extends StatelessWidget {
             }
           case NamedRoute.duplicateNamePreview:
             {
-              return MaterialPageRoute(builder: (context) => DuplicateNamePreview());
+              return MaterialPageRoute(
+                  builder: (context) => DuplicateNamePreview());
             }
           case NamedRoute.duplicatePhones:
             {
@@ -178,7 +191,8 @@ class MyApp extends StatelessWidget {
             }
           case NamedRoute.duplicatePhonesPreview:
             {
-              return MaterialPageRoute(builder: (context) => DuplicatePhonePreview());
+              return MaterialPageRoute(
+                  builder: (context) => DuplicatePhonePreview());
             }
           case NamedRoute.duplicateEmail:
             {
@@ -186,7 +200,8 @@ class MyApp extends StatelessWidget {
             }
           case NamedRoute.duplicateEmailPreview:
             {
-              return MaterialPageRoute(builder: (context) => DuplicateEmailPreview());
+              return MaterialPageRoute(
+                  builder: (context) => DuplicateEmailPreview());
             }
           case NamedRoute.noName:
             {
@@ -210,15 +225,18 @@ class MyApp extends StatelessWidget {
             }
           case NamedRoute.photoCompressPreview:
             {
-              return MaterialPageRoute(builder: (context) => PhotoCompressPreview());
+              return MaterialPageRoute(
+                  builder: (context) => PhotoCompressPreview());
             }
           case NamedRoute.photoCompressScanImage:
             {
-              return MaterialPageRoute(builder: (context) => PhotoCompressScanImage());
+              return MaterialPageRoute(
+                  builder: (context) => PhotoCompressScanImage());
             }
           case NamedRoute.photoCompressScanSuccess:
             {
-              return MaterialPageRoute(builder: (context) => PhotoCompressSuccess());
+              return MaterialPageRoute(
+                  builder: (context) => PhotoCompressSuccess());
             }
           case NamedRoute.videoCompress:
             {
@@ -226,19 +244,23 @@ class MyApp extends StatelessWidget {
             }
           case NamedRoute.videoCompressPreview:
             {
-              return MaterialPageRoute(builder: (context) => VideoCompresPreview());
+              return MaterialPageRoute(
+                  builder: (context) => VideoCompresPreview());
             }
           case NamedRoute.videoCompressResult:
             {
-              return MaterialPageRoute(builder: (context) => VideoCompresResult());
+              return MaterialPageRoute(
+                  builder: (context) => VideoCompresResult());
             }
           case NamedRoute.videoCompressResultScan:
             {
-              return MaterialPageRoute(builder: (context) => VideoCompressResultScan());
+              return MaterialPageRoute(
+                  builder: (context) => VideoCompressResultScan());
             }
           case NamedRoute.videoCompressSuccess:
             {
-              return MaterialPageRoute(builder: (context) => VideoCompressSuccess());
+              return MaterialPageRoute(
+                  builder: (context) => VideoCompressSuccess());
             }
         }
       },
