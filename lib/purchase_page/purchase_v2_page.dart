@@ -1,26 +1,22 @@
 import 'dart:async';
 import 'dart:io';
 
-// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart';
 import 'package:com.qksoft.sharefilemess/purchase_page/widgets/purchase_case_item.dart';
 import 'package:com.qksoft.sharefilemess/purchase_page/widgets/supcription_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-// ignore: depend_on_referenced_packages
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../Component/text_style/text_styles.dart';
-import '../generated/l10n.dart';
 import '../model/app_image.dart';
 import '../modules/browser_page/browser_page.dart';
 import '../utils/color.dart';
 import '../utils/component/image_widget/svg_widget.dart';
-
 
 const String _weekId = 'remove_ads_weekly';
 const String _monthId = 'remove_ads_monthly';
@@ -92,7 +88,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
         color: AppColor.background,
         child: Center(
           child: Text(
-            S.current.smthw,
+            'S.current.smthw',
             style: AppTextStyle.regular14.copyWith(color: AppColor.white),
           ),
         ),
@@ -143,17 +139,17 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              S.current.joinP,
+              'Join Premium Plan',
               style: AppTextStyle.regular30.copyWith(color: AppColor.green),
             ),
             const SizedBox(
               height: 44,
             ),
-            Supcription(svgPath: SvgPath.unlock, title: S.current.unlock),
+            Supcription(svgPath: SvgPath.unlock, title: 'Unlock VPN Location'),
             const SizedBox(
               height: 20,
             ),
-            Supcription(svgPath: SvgPath.sub3, title: S.current.noAds),
+            Supcription(svgPath: SvgPath.sub3, title: 'No ads'),
             const SizedBox(
               height: 44,
             ),
@@ -174,7 +170,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
               height: 30,
             ),
             Text(
-              S.current.paymentWill,
+              'Payment will be charged to iTunes Account at confirmation of purchase. To ensure uninterrupted service, all subscriptions are renewed automatically unless auto-renew is turned off at least 24-hours before the end of the current period. The account is charged for renewal within 24-hours before the end of the current period. Users can manage and cancel subscriptions in their account settings on the App Store. Please note that when your purchase a subscription, the sale is final, and we will not provide a refund. Your purchase will be subject to Apple\'s applicable payment policy, which also may not provide for refunds.',
               style: AppTextStyle.regular11.copyWith(
                 fontSize: 10,
                 color: AppColor.unselected,
@@ -189,7 +185,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
                 GestureDetector(
                   onTap: handleTermButton,
                   child: Text(
-                    S.current.term,
+                    'Term of Use',
                     style: AppTextStyle.regular13.copyWith(
                         color: AppColor.white,
                         decoration: TextDecoration.underline),
@@ -198,7 +194,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
                 GestureDetector(
                   onTap: handleRestoreButtonAsync,
                   child: Text(
-                    S.current.restore,
+                    'Restore',
                     style: AppTextStyle.regular13.copyWith(
                         color: AppColor.white,
                         decoration: TextDecoration.underline),
@@ -207,7 +203,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
                 GestureDetector(
                   onTap: handlePrivacyPolicyButton,
                   child: Text(
-                    S.current.privacyPolicy,
+                    'Privacy Policy',
                     style: AppTextStyle.regular13.copyWith(
                         color: AppColor.white,
                         decoration: TextDecoration.underline),
@@ -291,13 +287,13 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
           //   )),
           //   productID: purchaseDetails.productID,
           // ));
-          EasyLoading.showSuccess(S.current.yourAreP);
+          EasyLoading.showSuccess('S.current.unlock');
           break;
         case PurchaseStatus.error:
           if (EasyLoading.isShow) {
             EasyLoading.dismiss();
           }
-          EasyLoading.showError(S.current.smthw);
+          EasyLoading.showError('S.current.unlock');
           break;
         case PurchaseStatus.restored:
           // await locator<AppDatabase>().setPastProduct(Product(
@@ -313,7 +309,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
           //   )),
           //   productID: purchaseDetails.productID,
           // ));
-          EasyLoading.showSuccess(S.current.restoreYouPlan);
+          EasyLoading.showSuccess('S.current.unlock');
           break;
         case PurchaseStatus.canceled:
           // TODO: Handle this case.
@@ -375,7 +371,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
     await _inAppPurchase
         .buyNonConsumable(purchaseParam: purchaseParam)
         .catchError((error) {
-      EasyLoading.showError(S.current.cantPur);
+      EasyLoading.showError('S.current.unlock');
       return true;
     });
   }
@@ -385,7 +381,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
     Navigator.of(context).push(PageTransition(
         child: BrowserPage(
           url: 'https://sites.google.com/view/hello-vpn-fast-proxy',
-          title: S.current.term,
+          title: 'Term',
         ),
         type: PageTransitionType.rightToLeft));
   }
@@ -395,7 +391,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
     await _inAppPurchase.restorePurchases().catchError((e) {
       if (e is SKError) {
         EasyLoading.showInfo(
-            e.userInfo['NSLocalizedDescription'] ?? S.current.smthe);
+            e.userInfo['NSLocalizedDescription'] ?? 'S.current.unlock');
       }
     });
     EasyLoading.dismiss();
@@ -405,7 +401,7 @@ class _PurchaseV2PageState extends State<PurchaseV2Page> {
     Navigator.of(context).push(PageTransition(
       child: BrowserPage(
           url: 'https://sites.google.com/view/hellovpn-fastproxy',
-          title: S.current.privacyPolicy),
+          title: 'Privacy Policy'),
       type: PageTransitionType.rightToLeft,
     ));
   }
@@ -445,6 +441,6 @@ extension ProductDetailsExt on ProductDetails {
 
   String parseDescription() {
     String duration = parseDuration();
-    return "${S.current.days} $price/$duration";
+    return "${'S.current.unlock'} $price/$duration";
   }
 }

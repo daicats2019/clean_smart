@@ -263,8 +263,10 @@ class _PremiumPageState extends State<PremiumPage> {
                     color: Colors.white),
                 child: TextButton(
                     onPressed: () {
-                      PurchaseV2Page();
-                      print('objectAAAAA');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PurchaseV2Page()));
                     },
                     child: Text('SUBSCRIBE',
                         style: TextStyle(

@@ -14,7 +14,7 @@ import 'Page/Page Contact/no_email_no_phone.dart';
 import 'Page/Page Contact/no_names.dart';
 import 'Page/Page Contact/no_phons.dart';
 import 'Page/PageWelcom/welcomPage.dart';
-import 'Page/PageWelcom/welcomPage2..dart';
+import 'Page/PageWelcom/welcomPage2.dart';
 import 'Page/PageWelcom/welcomPage3.dart';
 import 'Page/PageWelcom/welcomePage4.dart';
 import 'Page/PhotoCompress/photo_compresstion_success.dart';
@@ -53,7 +53,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-  // Hive.registerAdapter(ProductAdapter());
+  Hive.registerAdapter(ProductAdapter());
 
   await Hive.openBox<Product>('product');
 
