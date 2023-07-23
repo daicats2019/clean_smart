@@ -18,23 +18,26 @@ import '../modules/browser_page/browser_page.dart';
 import '../utils/color.dart';
 import '../utils/component/image_widget/svg_widget.dart';
 
-const String _weekId = 'remove_ads_weekly';
-const String _monthId = 'remove_ads_monthly';
-const String _yearId = 'remove_ads_yearly';
 const List<String> _kProductIds = <String>[
-  _weekId,
-  _monthId,
-  _yearId,
-  'yolobook_sub_01',
-  'yolobook_sub_02',
-  'yolobook_sub_03',
-  'yolobook_sub_04',
-  'yolobook_sub_05',
-  'yolobook_sub_06',
-  'yolobook_sub_07',
-  'yolobook_sub_08',
-  'yolobook_sub_09',
-  'yolobook_sub_10'
+  'qksoft_sub_01',
+  'qksoft_sub_02',
+  'qksoft_sub_03',
+  'qksoft_sub_04',
+  'qksoft_sub_05',
+  'qksoft_sub_06',
+  'qksoft_sub_07',
+  'qksoft_sub_08',
+  'qksoft_sub_09',
+  'qksoft_sub_10',
+  'qksoft_sub_11',
+  'qksoft_sub_12',
+  'qksoft_sub_13',
+  'qksoft_sub_14',
+  'qksoft_sub_15',
+  'qksoft_sub_16',
+  'qksoft_sub_17',
+  'qksoft_sub_18',
+  'qksoft_sub_19'
 ];
 
 class PurchaseV2Page extends StatefulWidget {
